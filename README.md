@@ -1,65 +1,39 @@
 # Stanford Daily Blotter Fiction
 
-A short story of crime at Stanford, written from the police blotter dataset curated by The Stanford Daily.
+A short story of crime at Stanford, written from [`stanforddams/daily`](https://huggingface.co/datasets/stanforddams/daily), a dataset of 139 police blotter articles published by the Stanford Daily between 2021 and 2026. The dataset covers weekly incident summaries reported to the Stanford University Department of Public Safety (SUDPS), across campus residences, academic buildings, and parking lots.
 
-## Overview
+Full story: [`STORY.md`](STORY.md)
 
-[The Stanford Daily](https://stanforddaily.com) publishes a weekly police blotter summarizing incidents reported to the Stanford University Department of Public Safety (SUDPS). `stanforddams/daily` on Hugging Face collects 139 of these blotter articles, published between September 2021 and June 2026, along with structured metadata and a taxonomy of the crime categories and tags used across the collection.
+## Why this exists
 
-This repository contains an original short story, "Lot 95," inspired by that dataset. The story uses real Stanford campus geography and the format of the blotter itself as texture, but the characters, dialogue, and central case are invented. It is fiction, not reporting.
+The Daily's blotter turns campus crime into a fixed, repetitive vocabulary - bike theft, vehicle burglary, petty theft from a building - tagged day by day, location by location, week after week. Reading enough of it in one sitting, the pattern of the format starts to feel like a story on its own: a narrator who only ever sees crime through categories and codes, and has to notice what the categories miss. "Lot 95" is that idea worked into fiction rather than an EDA writeup. The characters and case are invented; the campus geography is real.
 
-## Data Source
+## The data
 
-- Dataset: [stanforddams/daily](https://huggingface.co/datasets/stanforddams/daily)
-- Source publication: [The Stanford Daily](https://stanforddaily.com)
-- License: content is copyright The Stanford Daily; dataset metadata is released under MIT
+The dataset ships three files: `index.json` for per-article metadata (title, author, url, date, category and tag IDs), `train.jsonl` for the raw HTML body of each article, and `taxonomy.json`, which resolves the numeric category and tag IDs into labels like "bike theft" or "hate violence." The article HTML needs to be parsed (BeautifulSoup, per the dataset card) before the actual blotter text is usable - most of each page is site navigation and footer links.
 
-## Repository Contents
+One quirk that shaped the story: the human-readable blotter text and the underlying category/tag codes are separate layers. A location or incident type can repeat across the numeric metadata in a way the prose doesn't call attention to. That gap - between what the blotter says and what the taxonomy shows if you go looking - is the device the story is built around.
 
-| File | Description |
-|---|---|
-| `STORY.md` | The short story, "Lot 95" |
-| `notes/dataset-notes.md` | Notes on the dataset structure and the details drawn from it while writing |
-| `scripts/load_dataset.py` | Reference script for loading and exploring the dataset |
-| `LICENSE` | License for the original written content in this repository |
+No article's specific incidents, dates, or content were copied into the story. Locations named (Escondido Village, Wilbur Hall, Cobb Track, Lot 95) are real, recurring places in the dataset, used only as setting.
 
-## Method
+## Getting started
 
-The story does not summarize or quote any individual blotter article. It draws on:
-
-- The dataset's five-year time span and weekly cadence
-- The `categories` and `tags` taxonomy structure described in `taxonomy.json`, which resolves numeric codes to labels like "bike theft" and "vehicle burglary"
-- Real, publicly known Stanford locations that recur across the blotter (residential lots, athletic facilities, academic buildings) used only as setting
-
-Further detail is in `notes/dataset-notes.md`.
-
-## Reproducing the Dataset Exploration
-
-```python
-from datasets import load_dataset
-from bs4 import BeautifulSoup
-
-ds = load_dataset("stanforddams/daily", "html")
-
-def collect(example):
-    soup = BeautifulSoup(example["html"], "html.parser")
-    example["text"] = soup.get_text(" ", strip=True)
-    example["title"] = soup.title.string if soup.title else None
-    return example
-
-ds = ds.map(collect)
-ds["train"][0]["text"]
+```bash
+git clone https://github.com/aayanahmed20/stanford-daily-blotter-fiction.git
+cd stanford-daily-blotter-fiction
+pip install datasets beautifulsoup4
+python scripts/load_dataset.py
 ```
 
-## Disclaimer
+`scripts/load_dataset.py` loads the dataset and prints the parsed title and text of the first article, as a reference for exploring the rest.
 
-"Lot 95" is a work of fiction. No character, event, arrest, or investigation in the story corresponds to an actual incident, person, or case. Any resemblance to real individuals is coincidental.
+## Project structure
 
-## License
+- `STORY.md` - the short story, "Lot 95"
+- `notes/dataset-notes.md` - what from the dataset's structure and geography informed the story
+- `scripts/load_dataset.py` - reference script for loading and parsing the dataset
+- `LICENSE`
 
-The written content in this repository (`STORY.md`, notes) is original work released under the license in `LICENSE`. It is independent of the source dataset's own license and does not reproduce any of the dataset's underlying article text.
+## Limitations
 
-## Contributors
-
-- [aayanahmed20](https://github.com/aayanahmed20)
-- Timothy Pshenicnhy
+This is a fiction exercise, not reporting. No character, event, arrest, or investigation in "Lot 95" corresponds to an actual incident, person, or case in the dataset or on record. Any resemblance to real individuals is coincidental.
