@@ -56,4 +56,4 @@ This is a fiction exercise, not reporting. No character, event, arrest, or inves
 
 ## Contributors
 
-- [@timofeywheat-wq](https://github.com/timofeywheat-wq) - suggested the campus map and "Dataset at a glance" additions
+- [@timofeywheat-wq](https://github.com/timofeywheat-wq)
