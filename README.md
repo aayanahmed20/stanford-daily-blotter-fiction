@@ -16,6 +16,21 @@ One quirk that shaped the story: the human-readable blotter text and the underly
 
 No article's specific incidents, dates, or content were copied into the story. Locations named (Escondido Village, Wilbur Hall, Cobb Track, Lot 95) are real, recurring places in the dataset, used only as setting.
 
+### Dataset at a glance
+
+- **Articles:** 139 police blotter posts
+- **Time period:** September 2021 - June 2026, roughly one per week during the academic year
+- **Recurring locations:** residential lots (including Lot 95), Escondido Village, Wilbur Hall, and athletic facilities around Cobb Track and Angell Field, alongside scattered department and dorm parking areas
+- **Incident types:** a fixed taxonomy of categories and tags - petty theft, bike theft, burglary from a motor vehicle, vandalism, grand theft, and hate violence among them - resolved from `taxonomy.json`
+
+## Campus map
+
+The places that recur across the dataset, and that anchor the story's setting:
+
+<img src="assets/campus-map.svg" alt="Schematic map of recurring dataset locations: Lot 95, Wilbur Hall, Escondido Village, Cobb Track / Angell Field, and department/dorm parking" width="700">
+
+This is a schematic for orientation, not a to-scale campus map - it exists to show how often the same handful of places recur in the blotter, not to map incidents precisely.
+
 ## Getting started
 
 ```bash
@@ -32,8 +47,13 @@ python scripts/load_dataset.py
 - `STORY.md` - the short story, "Lot 95"
 - `notes/dataset-notes.md` - what from the dataset's structure and geography informed the story
 - `scripts/load_dataset.py` - reference script for loading and parsing the dataset
+- `assets/campus-map.svg` - schematic map of the dataset's recurring locations
 - `LICENSE`
 
 ## Limitations
 
 This is a fiction exercise, not reporting. No character, event, arrest, or investigation in "Lot 95" corresponds to an actual incident, person, or case in the dataset or on record. Any resemblance to real individuals is coincidental.
+
+## Contributors
+
+- [@timofeywheat-wq](https://github.com/timofeywheat-wq) - suggested the campus map and "Dataset at a glance" additions

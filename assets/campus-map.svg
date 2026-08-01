@@ -1,0 +1,67 @@
+<svg viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="800" height="560" fill="#faf9f7"/>
+
+  <!-- title -->
+  <text x="30" y="40" font-size="20" font-weight="600" fill="#1a1a1a">Recurring locations in the dataset</text>
+  <text x="30" y="60" font-size="12" fill="#6b6b6b">Schematic, not to scale - for orientation only</text>
+
+  <!-- schematic roads -->
+  <g stroke="#d8d3c9" stroke-width="10" fill="none">
+    <path d="M 60 480 C 220 460, 320 430, 420 380"/>
+    <path d="M 420 380 C 500 340, 560 260, 600 140"/>
+    <path d="M 420 380 C 470 420, 560 440, 720 420"/>
+    <path d="M 150 150 C 220 220, 320 300, 420 380"/>
+  </g>
+  <g stroke="#c2bcae" stroke-width="1.5" stroke-dasharray="2 6" fill="none">
+    <path d="M 60 480 C 220 460, 320 430, 420 380"/>
+    <path d="M 420 380 C 500 340, 560 260, 600 140"/>
+    <path d="M 420 380 C 470 420, 560 440, 720 420"/>
+    <path d="M 150 150 C 220 220, 320 300, 420 380"/>
+  </g>
+
+  <!-- open space blocks (fields/lots), abstract shapes only -->
+  <rect x="520" y="70" width="150" height="90" rx="6" fill="#e7ede4" stroke="#c9d6c2"/>
+  <text x="595" y="60" font-size="12" fill="#5a6b52" text-anchor="middle">athletic fields</text>
+
+  <rect x="30" y="380" width="120" height="80" rx="6" fill="#eee9df" stroke="#ded5c2"/>
+  <text x="90" y="475" font-size="12" fill="#7a6b4e" text-anchor="middle">residential lots</text>
+
+  <!-- Locations -->
+  <!-- Lot 95 -->
+  <circle cx="420" cy="380" r="9" fill="#8c1515"/>
+  <text x="435" y="378" font-size="14" font-weight="600" fill="#1a1a1a">Lot 95</text>
+  <text x="435" y="394" font-size="11" fill="#6b6b6b">parking, residential edge</text>
+
+  <!-- Wilbur Hall -->
+  <circle cx="150" cy="150" r="9" fill="#8c1515"/>
+  <text x="165" y="148" font-size="14" font-weight="600" fill="#1a1a1a">Wilbur Hall</text>
+  <text x="165" y="164" font-size="11" fill="#6b6b6b">residence</text>
+
+  <!-- Escondido Village -->
+  <circle cx="60" cy="480" r="9" fill="#8c1515"/>
+  <text x="75" y="478" font-size="14" font-weight="600" fill="#1a1a1a">Escondido Village</text>
+  <text x="75" y="494" font-size="11" fill="#6b6b6b">grad residences</text>
+
+  <!-- Cobb Track / Angell Field -->
+  <circle cx="600" cy="140" r="9" fill="#8c1515"/>
+  <text x="615" y="138" font-size="14" font-weight="600" fill="#1a1a1a">Cobb Track</text>
+  <text x="615" y="154" font-size="11" fill="#6b6b6b">Angell Field</text>
+
+  <!-- Dept / dorm parking -->
+  <circle cx="720" cy="420" r="9" fill="#8c1515"/>
+  <text x="700" y="440" font-size="14" font-weight="600" fill="#1a1a1a" text-anchor="end">Dept / dorm parking</text>
+  <text x="700" y="456" font-size="11" fill="#6b6b6b" text-anchor="end">scattered lots</text>
+
+  <!-- legend -->
+  <g transform="translate(30,500)">
+    <circle cx="0" cy="0" r="6" fill="#8c1515"/>
+    <text x="14" y="4" font-size="12" fill="#3a3a3a">location named in "Lot 95" and recurring in the dataset</text>
+  </g>
+
+  <!-- north arrow -->
+  <g transform="translate(750,40)">
+    <line x1="0" y1="20" x2="0" y2="-10" stroke="#3a3a3a" stroke-width="2"/>
+    <polygon points="0,-16 -5,-6 5,-6" fill="#3a3a3a"/>
+    <text x="0" y="34" font-size="11" fill="#3a3a3a" text-anchor="middle">N</text>
+  </g>
+</svg>
