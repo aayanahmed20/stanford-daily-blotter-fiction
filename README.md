@@ -37,20 +37,6 @@ The places that recur across the dataset, and that anchor the story's setting:
 
 This is a schematic for orientation, not a to-scale campus map - it exists to show how often the same handful of places recur in the blotter, not to map incidents precisely.
 
-## Getting started
-
-```bash
-git clone https://github.com/aayanahmed20/stanford-daily-blotter-fiction.git
-cd stanford-daily-blotter-fiction
-pip install datasets beautifulsoup4
-python scripts/load_dataset.py
-python scripts/explore_taxonomy.py
-```
-
-`scripts/load_dataset.py` loads the dataset and prints the parsed title and text of the first article, as a reference for exploring the rest.
-
-`scripts/explore_taxonomy.py` reproduces the actual exploration that surfaced the Lot 95 pattern: it parses every article for vehicle-burglary mentions and counts which locations recur most, the count that's invisible in the prose but visible once you tabulate it. Running it is how you'd verify, independently, that Lot 95 really is a repeat location in the dataset rather than take the README's word for it.
-
 ## Project structure
 
 - `STORY.md` - the short story, "Lot 95"
