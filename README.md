@@ -53,3 +53,9 @@ See [Before you read: this is fiction](#before-you-read-this-is-fiction) above -
 ## Contributors
 
 - [@timofeywheat-wq](https://github.com/timofeywheat-wq)
+
+## License
+
+MIT — see [LICENSE](LICENSE). The underlying dataset is
+[`stanforddams/daily`](https://huggingface.co/datasets/stanforddams/daily) on
+Hugging Face; see its own license/terms for reuse of the raw data.
