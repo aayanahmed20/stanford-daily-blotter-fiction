@@ -1,5 +1,7 @@
 # Stanford Daily Blotter Fiction
 
+**Python** · **Hugging Face Datasets** · **MIT License**
+
 A short story of crime at Stanford, written from [`stanforddams/daily`](https://huggingface.co/datasets/stanforddams/daily), a dataset of 139 police blotter articles published by the Stanford Daily between 2021 and 2026. The dataset covers weekly incident summaries reported to the Stanford University Department of Public Safety (SUDPS), across campus residences, academic buildings, and parking lots.
 
 Full story: [`STORY.md`](STORY.md)
@@ -37,6 +39,11 @@ The places that recur across the dataset, and that anchor the story's setting:
 
 This is a schematic for orientation, not a to-scale campus map - it exists to show how often the same handful of places recur in the blotter, not to map incidents precisely.
 
+## Tech stack
+
+Python · [`datasets`](https://pypi.org/project/datasets/) (Hugging Face, dataset loading) ·
+`beautifulsoup4` (HTML parsing)
+
 ## Project structure
 
 - `STORY.md` - the short story, "Lot 95"
@@ -45,6 +52,14 @@ This is a schematic for orientation, not a to-scale campus map - it exists to sh
 - `scripts/explore_taxonomy.py` - reference script reproducing the location-frequency exploration that inspired the story
 - `assets/campus-map.svg` - schematic map of the dataset's recurring locations
 - `LICENSE`
+
+## Setup
+
+```bash
+pip install datasets beautifulsoup4
+python scripts/load_dataset.py
+python scripts/explore_taxonomy.py
+```
 
 ## Limitations
 
